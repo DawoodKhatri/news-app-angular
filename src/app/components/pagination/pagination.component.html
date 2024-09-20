@@ -1,0 +1,63 @@
+<div
+  *ngIf="totalPages > 1 && currentPage <= totalPages"
+  class="flex items-center justify-end gap-4"
+>
+  <button
+    *ngIf="currentPage > 1"
+    (click)="onPrevious()"
+    class="bg-primary text-white h-8 px-2 rounded-md"
+  >
+    Previous
+  </button>
+
+  <button
+    *ngIf="currentPage >= 2"
+    (click)="onPageSelect(1)"
+    class="size-8 rounded-full"
+  >
+    {{ 1 }}
+  </button>
+
+  <div *ngIf="currentPage >= 4">...</div>
+
+  <button
+    *ngIf="currentPage >= 3"
+    (click)="onPageSelect(currentPage - 1)"
+    class="size-8 rounded-full"
+  >
+    {{ currentPage - 1 }}
+  </button>
+
+  <button
+    (click)="onPageSelect(currentPage)"
+    class="size-8 rounded-full bg-primary text-white"
+  >
+    {{ currentPage }}
+  </button>
+
+  <button
+    *ngIf="currentPage + 1 < totalPages"
+    (click)="onPageSelect(currentPage + 1)"
+    class="size-8 rounded-full"
+  >
+    {{ currentPage + 1 }}
+  </button>
+
+  <div *ngIf="currentPage + 2 < totalPages">...</div>
+
+  <button
+    *ngIf="currentPage < totalPages"
+    (click)="onPageSelect(totalPages)"
+    class="size-8 rounded-full"
+  >
+    {{ totalPages }}
+  </button>
+
+  <button
+    *ngIf="currentPage < totalPages"
+    (click)="onNext()"
+    class="bg-primary text-white h-8 px-2 rounded-md"
+  >
+    Next
+  </button>
+</div>
